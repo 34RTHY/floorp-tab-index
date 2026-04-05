@@ -1,0 +1,55 @@
+/* === Tab Index Numbers === */
+
+#tabbrowser-tabs {
+  counter-reset: tab-counter !important;
+}
+
+.tabbrowser-tab {
+  counter-increment: tab-counter !important;
+}
+
+/* Number badge on the tab label text */
+.tabbrowser-tab .tab-label::before {
+  content: counter(tab-counter) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 20px !important;
+  height: 20px !important;
+  margin-inline-end: 6px !important;
+  padding: 0 4px !important;
+  border-radius: 6px !important;
+  background: #3b82f6 !important;
+  color: #fff !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Mono", Menlo, monospace !important;
+  line-height: 20px !important;
+  text-align: center !important;
+  flex-shrink: 0 !important;
+  vertical-align: middle !important;
+}
+
+/* Tabs 9+ — muted blue */
+.tabbrowser-tab:nth-child(n+9) .tab-label::before {
+  background: #64748b !important;
+}
+
+/* Tabs 1-8 — bright blue */
+.tabbrowser-tab:nth-child(-n+8) .tab-label::before {
+  background: #3b82f6 !important;
+}
+
+/* Active tab — green */
+.tabbrowser-tab[selected] .tab-label::before {
+  background: #22c55e !important;
+}
+
+/* Pinned tabs — smaller */
+.tabbrowser-tab[pinned] .tab-label::before {
+  min-width: 16px !important;
+  height: 16px !important;
+  font-size: 10px !important;
+  line-height: 16px !important;
+  margin-inline-end: 4px !important;
+}
